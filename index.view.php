@@ -3,22 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>document</title>
-    <style>
-        header {
-            background: #e3e3e3;
-            padding: 2em;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
 
+ <hi>Task For The Day</hi>
+
     <ul>
-        <?php foreach ($person as $key => $feature) : ?>
-            <li><strong><?= $key; ?></strong> <?= $feature; ?></li>
-        <?php endforeach; ?>
+        <li>
+            <strong>Name: </strong> <?= $task['title']; ?>
+        </li>
+
+        <li>
+            <strong>Due Date: </strong> <?= $task['due']; ?>
+        </li>
+
+        <li>
+            <strong>Personal responsible </strong> <?= $task ['assigned_to']; ?>
+        </li>
+
+        <li>
+            <strong>Status: </strong> <?= $task['completed'] ? 'Complete' : 'Incomplete'; ?>
+        </li>
+
+        <li>
+            <strong>Status: </strong>
+
+            <?php if ($task ['completed']) : ?>
+                <span class="icon">&#9989;</span>
+            <?php else: ?>
+                <span class="icon">Incomplete;</span>
+            <?php endif; ?>
+        </li>
     </ul>
-
-
 </body>
 </html>
+
+
+<?php
+
+    $title = "Hello world"
+
+?>
+
+<html>
+    <body>
+        {{ title }}
+    </body>
+</html?>
