@@ -1,13 +1,6 @@
 <?php
 
-$person = [
-    'age' => 28,
-    'hair' => 'Red',
-    'Career' => 'unemployed'
-];
+$database = require 'core/bootstrap.php';
 
-$person ['name'] = 'Bart';
-
-die('Hello world');
-
-//require 'index.view.php';
+require $router = Router::load('routes.php')
+    ->direct(Request::uri());
