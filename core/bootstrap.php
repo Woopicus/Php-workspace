@@ -1,16 +1,19 @@
 <?php 
 
-$app = [];
+App::bind('config', require 'config.php');
 
-$app['config'] = require 'config.php';
+App::bind('database', new QueryBuilder(
+    Connection::make(App::get('config')['database'])
+));
 
-$config = require 'config.php';
+function view ($name, $data = [])
+{
+    extract($data);
 
-require 'core/Router.php';
-require 'core/Request.php';
-require 'core/database/Connection.php';
-require 'core/database/QueryBuilder.php';
+    return require "view/{$name}.view.php";
+}
 
-$app['database'] = new QueryBuilder(
-    Connection::make($app['config']['database'])
-);
+function redirect($path)
+{ 
+    header("Location: /{$path}");
+}
